@@ -11,7 +11,8 @@ connectDB();
 
 const app = express();
 app.use(cors({
-    origin: 'https://torch-lab-crm.vercel.app' 
+    origin: ['https://torch-lab-crm.vercel.app', 
+      'http://localhost:3000'] 
   }));
 app.use(express.json());
 
