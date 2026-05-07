@@ -28,8 +28,8 @@ export default function LoginPage() {
     setError('');
     setMessage('');
     const url = isRegister
-      ? 'http://localhost:5000/api/auth/register'
-      : 'http://localhost:5000/api/auth/login';
+      ? `${process.env.NEXT_PUBLIC_API_URL}/auth/register`
+      : `${process.env.NEXT_PUBLIC_API_URL}/auth/login`;
     const payload = isRegister ? { name, email, password } : { email, password };
     try {
       const res = await fetch(url, {

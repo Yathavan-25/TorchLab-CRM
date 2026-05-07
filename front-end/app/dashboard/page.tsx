@@ -42,11 +42,11 @@ export default function DashboardPage() {
     if (!token) { router.push('/login'); return; }
     (async () => {
       try {
-        const resStats = await fetch('http://localhost:5000/api/leads/dashboard', {
+        const resStats = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads/dashboard`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setData(await resStats.json());
-        const resLeads = await fetch('http://localhost:5000/api/leads', {
+        const resLeads = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const leadData = await resLeads.json();
@@ -73,7 +73,7 @@ export default function DashboardPage() {
   const deleteLead = async (id: string) => {
     const token = localStorage.getItem('token');
     if (confirm('Are you sure you want to delete this lead?')) {
-      await fetch(`http://localhost:5000/api/leads/${id}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads/${id}`, {
         method: 'DELETE', headers: { Authorization: `Bearer ${token}` },
       });
       setLeads(leads.filter(l => l._id !== id));

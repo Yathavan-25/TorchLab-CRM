@@ -30,7 +30,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
     const token = localStorage.getItem('token');
     if (!token) { router.push('/login'); return; }
     (async () => {
-      const res = await fetch(`http://localhost:5000/api/leads/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       const data = await res.json();
       setLead(data);
       setName(data.leadName); setCompany(data.companyName); setEmail(data.email);
@@ -38,7 +38,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
       setSalesperson(data.assignedSalesperson); setStatus(data.status); setDealValue(data.dealValue);
     })();
     (async () => {
-      const res = await fetch(`http://localhost:5000/api/notes/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/notes/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       setNotes(await res.json());
     })();
   }, [id, router]);
@@ -46,7 +46,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    await fetch(`http://localhost:5000/api/leads/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({
@@ -62,7 +62,7 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
   const handleAddNote = async (e: React.FormEvent) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    const res = await fetch(`http://localhost:5000/api/notes/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/notes/${id}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({ content: newNoteContent, createdBy: newNoteCreator }),

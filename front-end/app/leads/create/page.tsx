@@ -31,7 +31,7 @@ export default function CreateLeadPage() {
         leadSource: source, assignedSalesperson: salesperson, status,
         dealValue: Number(dealValue),
       };
-      const res = await fetch('http://localhost:5000/api/leads', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(payload),
