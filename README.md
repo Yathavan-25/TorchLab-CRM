@@ -44,7 +44,7 @@ JWT_SECRET=your_jwt_secret_here
 PORT=5000
 ```
 
-Then from the `backend/` directory:
+Then from the `back-end/` directory:
 
 ```
 npm install
