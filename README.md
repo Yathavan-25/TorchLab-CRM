@@ -36,7 +36,7 @@ A full-stack CRM Lead Management System built for small sales teams to track lea
 
 **Backend**
 
-Create a `.env` file inside the `backend/` directory:
+Create a `.env` file inside the `back-end/` directory:
 
 ```
 MONGO_URI=your_mongodb_connection_string_here
@@ -53,7 +53,13 @@ npm run dev
 
 **Frontend**
 
-From the `frontend/` directory:
+Create a `.env.local` file inside the `front-end/` directory:
+
+```
+NEXT_PUBLIC_API_URL=http://localhost:{port number}/api
+```
+
+From the `front-end/` directory:
 
 ```
 npm install
@@ -99,6 +105,7 @@ All routes except login and register require an `Authorization: Bearer <token>` 
 | `MONGO_URI` | MongoDB connection string |
 | `JWT_SECRET` | Secret key used to sign JWT tokens |
 | `PORT` | Port for the Express server (default 5000) |
+| `NEXT_PUBLIC_API_URL` | Backend Server URL with the port number (5000) and should end with `/api` |
 
 ---
 
