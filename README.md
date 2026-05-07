@@ -39,8 +39,8 @@ A full-stack CRM Lead Management System built for small sales teams to track lea
 Create a `.env` file inside the `backend/` directory:
 
 ```
-MONGO_URI=mongodb+srv://admin:ufA918ycgwp3dnrJ@crm.zaodtht.mongodb.net/
-JWT_SECRET=Mp6MrjHOmzZWJgvu6ydbGmrL2NFMYpFxrLbt2PODRMCDZGW2bqzmhbik0uQQobsxbO274eLvvAkDqMl0qdFzFj
+MONGO_URI=your_mongodb_connection_string_here
+JWT_SECRET=your_jwt_secret_here
 PORT=5000
 ```
 
