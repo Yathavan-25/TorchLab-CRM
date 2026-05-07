@@ -8,7 +8,7 @@ A full-stack CRM Lead Management System built for small sales teams to track lea
 
 | Layer | Technology |
 |---|---|
-| Frontend | Next.js 14 (App Router), React, TypeScript |
+| Frontend | Next.js (App Router), TypeScript |
 | Backend | Node.js, Express.js |
 | Database | MongoDB with Mongoose |
 | Auth | JWT (JSON Web Tokens) |
